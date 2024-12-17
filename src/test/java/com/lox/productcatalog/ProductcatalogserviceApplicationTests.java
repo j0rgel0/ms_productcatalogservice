@@ -1,4 +1,4 @@
-package com.lox.productcatalogservice;
+package com.lox.productcatalog;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
