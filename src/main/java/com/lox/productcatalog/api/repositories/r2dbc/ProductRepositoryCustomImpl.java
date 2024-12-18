@@ -1,4 +1,3 @@
-// ProductRepositoryCustomImpl.java
 package com.lox.productcatalog.api.repositories.r2dbc;
 
 import com.lox.productcatalog.api.models.Product;
@@ -26,12 +25,12 @@ public class ProductRepositoryCustomImpl implements ProductRepositoryCustom {
     @Override
     public Flux<Product> findProductsByFilters(List<String> categories, BigDecimal minPrice,
             BigDecimal maxPrice, Pageable pageable) {
-        // Asignar valores predeterminados si son null
+        // Assign default values if null
         if (minPrice == null) {
             minPrice = BigDecimal.ZERO;
         }
 
-        // Construcción dinámica de la consulta SQL
+        // Dynamic SQL query construction
         StringBuilder queryBuilder = new StringBuilder("SELECT * FROM products WHERE 1=1");
 
         if (categories != null && !categories.isEmpty()) {
@@ -46,7 +45,7 @@ public class ProductRepositoryCustomImpl implements ProductRepositoryCustom {
             queryBuilder.append(" AND price <= :maxPrice");
         }
 
-        // Manejar el ordenamiento
+        // Handle sorting
         if (pageable.getSort().isSorted()) {
             queryBuilder.append(" ORDER BY ");
             StringBuilder orderByBuilder = new StringBuilder();
@@ -56,15 +55,15 @@ public class ProductRepositoryCustomImpl implements ProductRepositoryCustom {
                         .append(order.getDirection().toString())
                         .append(", ");
             });
-            // Eliminar la última coma y espacio
+            // Remove the last comma and space
             String orderBy = orderByBuilder.substring(0, orderByBuilder.length() - 2);
             queryBuilder.append(orderBy);
         }
 
-        // Manejar la paginación
+        // Handle pagination
         queryBuilder.append(" LIMIT :limit OFFSET :offset");
 
-        // Construir la consulta
+        // Build the query
         return databaseClient.sql(queryBuilder.toString())
                 .bind("categories", categories)
                 .bind("minPrice", minPrice)
@@ -89,12 +88,12 @@ public class ProductRepositoryCustomImpl implements ProductRepositoryCustom {
     @Override
     public Mono<Long> countProductsByFilters(List<String> categories, BigDecimal minPrice,
             BigDecimal maxPrice) {
-        // Asignar valores predeterminados si son null
+        // Assign default values if null
         if (minPrice == null) {
             minPrice = BigDecimal.ZERO;
         }
 
-        // Construcción dinámica de la consulta SQL para el conteo
+        // Dynamic SQL query construction for counting
         StringBuilder queryBuilder = new StringBuilder("SELECT COUNT(*) FROM products WHERE 1=1");
 
         if (categories != null && !categories.isEmpty()) {

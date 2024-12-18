@@ -1,5 +1,3 @@
-// src/main/java/com/lox/productcatalog/api/controllers/ProductController.java
-
 package com.lox.productcatalog.api.controllers;
 
 import com.lox.productcatalog.api.models.Product;
@@ -97,7 +95,7 @@ public class ProductController {
         }
 
         return productService.listProducts(categories, minPrice, maxPrice, pageable)
-                .map(productPage -> ResponseEntity.ok(productPage))
+                .map(ResponseEntity::ok)
                 .onErrorResume(e -> Mono.just(ResponseEntity.status(500).build()));
     }
 }

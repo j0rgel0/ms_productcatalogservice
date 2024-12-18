@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductPage {
+
     private List<Product> products;
     private long totalElements;
     private int totalPages;
