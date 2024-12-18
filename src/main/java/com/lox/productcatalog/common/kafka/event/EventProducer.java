@@ -1,5 +1,6 @@
 package com.lox.productcatalog.common.kafka.event;
 
+import com.lox.productcatalog.api.kafka.events.Event;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -29,13 +30,9 @@ public class EventProducer {
         );
 
         return kafkaSender.send(Mono.just(senderRecord))
-                .doOnNext(result -> {
-                    log.info("Successfully published event to {}: {} with offset [{}]",
-                            topic, event, result.recordMetadata().offset());
-                })
-                .doOnError(error -> {
-                    log.error("Failed to publish event to {}: {}", topic, error.getMessage());
-                })
+                .doOnNext(result -> log.info("Successfully published event to {}: {} with offset [{}]",
+                        topic, event, result.recordMetadata().offset()))
+                .doOnError(error -> log.error("Failed to publish event to {}: {}", topic, error.getMessage()))
                 .then(); // Convert to Mono<Void>
     }
 }

@@ -3,7 +3,6 @@ package com.lox.productcatalog.api.kafka.events;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lox.productcatalog.api.models.Product;
-import com.lox.productcatalog.common.kafka.event.Event;
 import java.time.Instant;
 import java.util.UUID;
 import lombok.Builder;

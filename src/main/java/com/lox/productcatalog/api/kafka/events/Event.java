@@ -1,4 +1,4 @@
-package com.lox.productcatalog.common.kafka.event;
+package com.lox.productcatalog.api.kafka.events;
 
 import java.time.Instant;
 import java.util.UUID;
