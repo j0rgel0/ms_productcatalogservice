@@ -20,7 +20,6 @@ public class ProductRemovedEvent implements Event {
     private final Instant timestamp;
 
     @Override
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
     public String getEventType() {
         return eventType;
     }
@@ -31,6 +30,7 @@ public class ProductRemovedEvent implements Event {
     }
 
     @Override
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
     public Instant getTimestamp() {
         return timestamp;
     }
