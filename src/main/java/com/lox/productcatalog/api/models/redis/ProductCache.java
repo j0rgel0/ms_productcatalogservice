@@ -1,4 +1,3 @@
-// ProductCache.java
 package com.lox.productcatalog.api.models.redis;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

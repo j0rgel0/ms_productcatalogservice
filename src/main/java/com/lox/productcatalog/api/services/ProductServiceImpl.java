@@ -1,5 +1,3 @@
-// src/main/java/com/lox/productcatalog/api/services/ProductServiceImpl.java
-
 package com.lox.productcatalog.api.services;
 
 import com.lox.productcatalog.api.exceptions.ProductNotFoundException;

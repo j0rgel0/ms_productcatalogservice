@@ -1,5 +1,3 @@
-// src/main/java/com/lox/authservice/config/R2dbcConfiguration.java
-
 package com.lox.productcatalog.common.r2dbc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

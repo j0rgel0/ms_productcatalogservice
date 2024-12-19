@@ -1,6 +1,5 @@
 package com.lox.productcatalog.common.r2dbc;
 
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.r2dbc.postgresql.codec.Json;

@@ -30,9 +30,11 @@ public class EventProducer {
         );
 
         return kafkaSender.send(Mono.just(senderRecord))
-                .doOnNext(result -> log.info("Successfully published event to {}: {} with offset [{}]",
+                .doOnNext(result -> log.info(
+                        "Successfully published event to {}: {} with offset [{}]",
                         topic, event, result.recordMetadata().offset()))
-                .doOnError(error -> log.error("Failed to publish event to {}: {}", topic, error.getMessage()))
+                .doOnError(error -> log.error("Failed to publish event to {}: {}", topic,
+                        error.getMessage()))
                 .then(); // Convert to Mono<Void>
     }
 }

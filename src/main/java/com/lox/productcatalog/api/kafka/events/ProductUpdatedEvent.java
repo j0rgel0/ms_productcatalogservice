@@ -1,5 +1,3 @@
-// src/main/java/com/lox/productcatalog/api/kafka/events/ProductUpdatedEvent.java
-
 package com.lox.productcatalog.api.kafka.events;
 
 import com.fasterxml.jackson.annotation.JsonFormat;

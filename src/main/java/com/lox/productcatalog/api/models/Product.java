@@ -1,4 +1,3 @@
-// Product.java
 package com.lox.productcatalog.api.models;
 
 import java.math.BigDecimal;

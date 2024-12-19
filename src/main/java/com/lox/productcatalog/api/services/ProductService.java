@@ -1,4 +1,3 @@
-// ProductService.java
 package com.lox.productcatalog.api.services;
 
 import com.lox.productcatalog.api.models.Product;
