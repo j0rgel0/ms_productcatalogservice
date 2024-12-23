@@ -16,6 +16,6 @@ public class KafkaTopics {
 
     @Bean
     public NewTopic productEventsTopic() {
-        return kafkaConfig.createTopic(PRODUCT_EVENTS_TOPIC, 0, (short) 0);
+        return kafkaConfig.createTopic(PRODUCT_EVENTS_TOPIC, 3, (short) 1);
     }
 }
